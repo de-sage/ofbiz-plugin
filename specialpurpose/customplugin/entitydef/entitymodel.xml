@@ -6,7 +6,24 @@
     <!-- ========================================================= -->
     <title>Entity of Customplugin Component</title>
     <description>None</description>
-    <copyright></copyright>
-    <version></version>
+<!--    <copyright></copyright>-->
+    <version>1.0</version>
+    <entity entity-name="CustomPluginDemoType" package-name="org.apache.ofbiz.customplugin" title="OfbizDemo Type Entity">
+        <field name="CustomPluginDemoTypeId" type="id"><description>primary sequenced ID</description></field>
+        <field name="description" type="description"></field>
+        <prim-key field="CustomPluginDemoTypeId"/>
+    </entity>
+
+    <entity entity-name="CustomPluginDemo" package-name="org.apache.ofbiz.customplugin" title="OfbizDemo Entity">
+        <field name="CustomPluginDemoId" type="id"><description>primary sequenced ID</description></field>
+        <field name="CustomPluginDemoTypeId" type="id"></field>
+        <field name="firstName" type="name"></field>
+        <field name="lastName" type="name"></field>
+        <field name="comments" type="comment"></field>
+        <prim-key field="CustomPluginDemoId"/>
+        <relation type="one" fk-name="ODEM_OD_TYPE_ID" rel-entity-name="CustomPluginDemoType">
+            <key-map field-name="CustomPluginDemoTypeId"/>
+        </relation>
+    </entity>
 
 </entitymodel>
