@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+    <SecurityGroupPermission groupId="FULLADMIN" permissionId="CUSTOMPLUGIN_ADMIN"/>
+    <SecurityGroupPermission groupId="FLEXADMIN" permissionId="CUSTOMPLUGIN_CREATE"/>
+    <SecurityGroupPermission groupId="FLEXADMIN" permissionId="CUSTOMPLUGIN_DELETE"/>
+    <SecurityGroupPermission groupId="FLEXADMIN" permissionId="CUSTOMPLUGIN_UPDATE"/>
+    <SecurityGroupPermission groupId="FLEXADMIN" permissionId="CUSTOMPLUGIN_VIEW"/>
+    <SecurityGroupPermission groupId="VIEWADMIN" permissionId="CUSTOMPLUGIN_VIEW"/>
+    <SecurityGroupPermission groupId="BIZADMIN" permissionId="CUSTOMPLUGIN_ADMIN"/>
+</entity-engine-xml>

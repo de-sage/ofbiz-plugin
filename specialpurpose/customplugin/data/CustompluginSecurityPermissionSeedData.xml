@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-engine-xml>
+    <SecurityPermission description="View operations in the Customplugin Component." permissionId="CUSTOMPLUGIN_VIEW"/>
+    <SecurityPermission description="Create operations in the Customplugin Component." permissionId="CUSTOMPLUGIN_CREATE"/>
+    <SecurityPermission description="Update operations in the Customplugin Component." permissionId="CUSTOMPLUGIN_UPDATE"/>
+    <SecurityPermission description="Delete operations in the Customplugin Component." permissionId="CUSTOMPLUGIN_DELETE"/>
+    <SecurityPermission description="ALL operations in the Customplugin Component." permissionId="CUSTOMPLUGIN_ADMIN"/>
+
+    <SecurityGroupPermission groupId="SUPER" permissionId="CUSTOMPLUGIN_ADMIN"/>
+
+</entity-engine-xml>
