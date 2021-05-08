@@ -10,7 +10,10 @@
             <widgets>
                 <decorator-screen name="CustompluginCommonDecorator" location="${parameters.mainDecoratorLocation}">
                     <decorator-section name="body">
-                        <label text="Hello World!! :)"/>
+<!--                        <label text="Hello World!! :)"/>-->
+                        <screenlet title="Add Ofbiz Demo">
+                            <include-form name="AddCustomPluginDemo" location="component://customplugin/widget/CustompluginForms.xml"/>
+                        </screenlet>
                     </decorator-section>
                 </decorator-screen>
             </widgets>
