@@ -13,7 +13,7 @@
     </service>
 
     <service name="createCustomPluginDemoByJavaService" default-entity-name="CustomPluginDemo" engine="java"
-             location="com.companyname.ofbizdemo.services.OfbizDemoServices" invoke="createOfbizDemo" auth="true">
+             location="com.companyname.customplugin.services.CustomPluginDemoService" invoke="createOfbizDemo" auth="true">
         <description>Create an Ofbiz Demo record using a service in Java</description>
         <auto-attributes include="pk" mode="OUT" optional="false"/>
         <auto-attributes include="nonpk" mode="IN" optional="false"/>
