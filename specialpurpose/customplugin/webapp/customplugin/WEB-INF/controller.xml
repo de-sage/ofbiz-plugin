@@ -29,4 +29,10 @@
     </request-map>
     <!-- View Mappings -->
     <view-map name="main" type="screen" page="component://customplugin/widget/CustompluginScreens.xml#main"/>
+
+    <!-- Request Mapping -->
+    <request-map uri="FindOfbizDemo"><security https="true" auth="true"/><response name="success" type="view" value="FindOfbizDemo"/></request-map>
+
+    <!-- View Mapping -->
+    <view-map name="FindOfbizDemo" type="screen" page="component://customplugin/widget/CustompluginScreens.xml#FindOfbizDemo"/>
 </site-conf>

@@ -16,4 +16,56 @@
         </field>
         <field name="submitButton" title="${uiLabelMap.CommonAdd}"><submit button-type="button"/></field>
     </form>
+<!--    second form-->
+    <form name="FindCustomPluginDemo" type="single" target="FindOfbizDemo" default-entity-name="CustomPluginDemo">
+        <field name="noConditionFind"><hidden value="Y"/> <!-- if this isn't there then with all fields empty no query will be done --></field>
+        <field name="CustomPluginDemoId" title="${uiLabelMap.CustomPluginDemoId}"><text-find/></field>
+        <field name="firstName" title="${uiLabelMap.CustomPluginDemoFirstName}"><text-find/></field>
+        <field name="lastName" title="${uiLabelMap.CustomPluginDemoLastName}"><text-find/></field>
+        <field name="CustomPluginDemoTypeId" title="${uiLabelMap.CustomPluginDemoType}">
+            <drop-down allow-empty="true" current-description="">
+                <entity-options description="${description}" key-field-name="CustomPluginDemoTypeId" entity-name="CustomPluginDemoType">
+                    <entity-order-by field-name="description"/>
+                </entity-options>
+            </drop-down>
+        </field>
+        <field name="searchButton" title="${uiLabelMap.CommonFind}" widget-style="smallSubmit"><submit button-type="button" image-location="/images/icons/magnifier.png"/></field>
+    </form>
+<!--    third form-->
+    <form name="ListOfCustomPluginDemo" type="list" list-name="listIt" paginate-target="FindOfbizDemo" default-entity-name="CustomPluginDemo" separate-columns="true"
+          odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">
+        <actions>
+            <!-- Preparing search results for user query by using OFBiz stock service to perform find operations on a single entity or view entity -->
+            <service service-name="performFind" result-map="result" result-map-list="listIt">
+                <field-map field-name="inputFields" from-field="ofbizDemoCtx"/>
+                <field-map field-name="entityName" value="CustomPluginDemo"/>
+                <field-map field-name="orderBy" from-field="parameters.sortField"/>
+                <field-map field-name="viewIndex" from-field="viewIndex"/>
+                <field-map field-name="viewSize" from-field="viewSize"/>
+            </service>
+        </actions>
+        <field name="CustomPluginDemoId" title="${uiLabelMap.CustomPluginDemoId}"><display/></field>
+        <field name="CustomPluginDemoTypeId" title="${uiLabelMap.CustomPluginDemoTypeId}"><display-entity entity-name="CustomPluginDemoType"/></field>
+        <field name="firstName" title="${uiLabelMap.OfbizDemoFirstName}" sort-field="true"><display/></field>
+        <field name="lastName" title="${uiLabelMap.OfbizDemoLastName}" sort-field="true"><display/></field>
+        <field name="comments" title="${uiLabelMap.OfbizDemoComment}"><display/></field>
+    </form>
+<!--    <form name="ListOfCustomPluginDemo" type="list" list-name="listIt" paginate-target="FindCustomPluginDemo" default-entity-name="CustomPluginDemo" separate-columns="true"-->
+<!--          odd-row-style="alternate-row" header-row-style="header-row-2" default-table-style="basic-table hover-bar">-->
+<!--        <actions>-->
+<!--            &lt;!&ndash; Preparing search results for user query by using OFBiz stock service to perform find operations on a single entity or view entity &ndash;&gt;-->
+<!--            <service service-name="performFind" result-map="result" result-map-list="listIt">-->
+<!--                <field-map field-name="inputFields" from-field="CustomPluginDemoCtx"/>-->
+<!--                <field-map field-name="entityName" value="CustomPluginDemo"/>-->
+<!--                <field-map field-name="orderBy" from-field="parameters.sortField"/>-->
+<!--                <field-map field-name="viewIndex" from-field="viewIndex"/>-->
+<!--                <field-map field-name="viewSize" from-field="viewSize"/>-->
+<!--            </service>-->
+<!--        </actions>-->
+<!--        <field name="CustomPluginDemoId" title="${uiLabelMap.OfbizDemoId}"><display/></field>-->
+<!--        <field name="CustomPluginDemoTypeId" title="${uiLabelMap.CustomPluginDemoType}"><display-entity entity-name="CustomPluginDemoType"/></field>-->
+<!--        <field name="firstName" title="${uiLabelMap.CustomPluginDemoFirstName}" sort-field="true"><display/></field>-->
+<!--        <field name="lastName" title="${uiLabelMap.CustomPluginDemoLastName}" sort-field="true"><display/></field>-->
+<!--        <field name="comments" title="${uiLabelMap.CustomPluginDemoComment}"><display/></field>-->
+<!--    </form>-->
 </forms>
