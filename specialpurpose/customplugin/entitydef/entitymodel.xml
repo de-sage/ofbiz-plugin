@@ -25,5 +25,4 @@
             <key-map field-name="CustomPluginDemoTypeId"/>
         </relation>
     </entity>
-
 </entitymodel>

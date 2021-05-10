@@ -7,6 +7,9 @@ import org.apache.ofbiz.entity.GenericEntityException;
 import org.apache.ofbiz.entity.GenericValue;
 import org.apache.ofbiz.service.DispatchContext;
 import org.apache.ofbiz.service.ServiceUtil;
+import org.apache.ofbiz.entity.Delegator;
+import org.apache.ofbiz.entity.GenericEntityException;
+
 
 public class CustomPluginDemoService {
     public static final String module = CustomPluginDemoService.class.getName();
@@ -24,6 +27,29 @@ public class CustomPluginDemoService {
             ofbizDemo = delegator.create(ofbizDemo);
             result.put("CustomPluginDemoId", ofbizDemo.getString("CustomPluginDemoId"));
             Debug.log("==========This is my first Java Service implementation in Apache OFBiz. OfbizDemo record created successfully with ofbizDemoId: "+ofbizDemo.getString("CustomPluginDemoId"));
+        } catch (GenericEntityException e) {
+            Debug.logError(e, module);
+            return ServiceUtil.returnError("Error in creating record in OfbizDemo entity ........" +module);
+        }
+        return result;
+    }
+
+    public static Map<String, Object> updateOfbizDemo(DispatchContext dctx, Map<String, ? extends Object> context) {
+        Map<String, Object> result = ServiceUtil.returnSuccess();
+        Delegator delegator = dctx.getDelegator();
+
+        try {
+//            GenericValue ofbizDemo = delegator.findByPrimaryKey(context.get("primary_key"));
+              GenericValue updateEntity = delegator.makeValue("CustomPluginDemo");
+            // Setting up all non primary key field values from context map
+            updateEntity.setPKFields(context);
+            // Creating record in database for OfbizDemo entity for prepared value
+            updateEntity.setNonPKFields(context);
+            delegator.store(updateEntity);
+
+
+//            result.put("CustomPluginDemoId", updateEntity.getString("CustomPluginDemoId"));
+//            Debug.log("==========This is my first Java Service implementation in Apache OFBiz. OfbizDemo record created successfully with ofbizDemoId: "+updateEntity.getString("CustomPluginDemoId"));
         } catch (GenericEntityException e) {
             Debug.logError(e, module);
             return ServiceUtil.returnError("Error in creating record in OfbizDemo entity ........" +module);
